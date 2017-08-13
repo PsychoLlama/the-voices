@@ -1,0 +1,24 @@
+{
+  "name": "the-voices",
+  "version": "0.1.0",
+  "description": "Play sounds remotely through a rest interface",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PsychoLlama/the-voices.git"
+  },
+  "keywords": [
+    "speech-synthesis",
+    "audio",
+    "sound"
+  ],
+  "author": "Jesse Gibson <overlord@psychollama.io> (http://psychollama.io)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PsychoLlama/the-voices/issues"
+  },
+  "homepage": "https://github.com/PsychoLlama/the-voices#readme"
+}
