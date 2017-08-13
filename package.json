@@ -4,7 +4,10 @@
   "description": "Play sounds remotely through a rest interface",
   "main": "dist/index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "postinstall": "mkdir -p audio-files",
+    "build": "babel src/ -d dist/ --ignore __tests__",
+    "build:watch": "yarn build -- --watch"
   },
   "repository": {
     "type": "git",
@@ -20,5 +23,11 @@
   "bugs": {
     "url": "https://github.com/PsychoLlama/the-voices/issues"
   },
-  "homepage": "https://github.com/PsychoLlama/the-voices#readme"
+  "homepage": "https://github.com/PsychoLlama/the-voices#readme",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "babel-runtime": "^6.25.0"
+  }
 }
