@@ -3,13 +3,10 @@ import path from 'path';
 import fs from 'fs';
 
 const fileExists = file =>
-  new Promise((resolve, reject) => {
-    fs.exists(file, (error, result) => {
-      if (error) {
-        reject(error);
-      } else {
-        resolve(result);
-      }
+  new Promise(resolve => {
+    fs.access(file, error => {
+      const exists = !error;
+      resolve(exists);
     });
   });
 
@@ -38,11 +35,8 @@ export class Player {
       throw new Error(`Cannot play "${name}". The audio file doesn't exist.`);
     }
 
-    this.process = child.spawn(
-      'ffplay',
-      [file, '-nodisp', '-nostats'],
-      () => {},
-    );
+    this.process = child.spawn('ffplay', [file, '-nodisp', '-nostats']);
+
     this.paused = false;
   }
 

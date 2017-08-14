@@ -14,7 +14,7 @@ describe('The player', () => {
 
   beforeEach(() => {
     player = new Player();
-    fs.exists.mockImplementation((file, cb) => cb(null, true));
+    fs.access.mockImplementation((file, cb) => cb(null));
 
     child.spawn = jest.fn(() => {
       proc = { kill: jest.fn() };
@@ -34,7 +34,6 @@ describe('The player', () => {
     expect(child.spawn).toHaveBeenCalledWith(
       'ffplay',
       expect.arrayContaining([format(name)]),
-      expect.any(Function),
     );
   });
 
@@ -85,7 +84,7 @@ describe('The player', () => {
   });
 
   it('throws if the file does not exist', async () => {
-    fs.exists.mockImplementation((file, cb) => cb(null, false));
+    fs.access.mockImplementation((file, cb) => cb(new Error('OH NO')));
 
     await expect(player.play('something')).rejects.toEqual(expect.any(Error));
   });
