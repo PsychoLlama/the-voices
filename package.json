@@ -52,6 +52,7 @@
   },
   "dependencies": {
     "babel-plugin-transform-runtime": "^6.23.0",
+    "body-parser": "^1.17.2",
     "express": "^4.15.4",
     "pm2": "^2.6.1",
     "rc": "^1.2.1"
